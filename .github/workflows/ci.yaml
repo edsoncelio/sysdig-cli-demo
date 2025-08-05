@@ -3,6 +3,9 @@ name: Scan Image
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scan-from-registry:
     runs-on: ubuntu-latest

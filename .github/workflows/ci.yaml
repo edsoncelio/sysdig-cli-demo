@@ -19,6 +19,7 @@ jobs:
       uses: sysdiglabs/scan-action@v5
       with:
           image-tag: sysdiglabs/dummy-vuln-app:latest
+          sysdig-secure-url: https://app.us4.sysdig.com
           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
 
     - name: Check logs

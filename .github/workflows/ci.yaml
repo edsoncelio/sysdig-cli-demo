@@ -1,4 +1,4 @@
-name: Ci: Scan Image
+name: Ci - Scan Image
 
 on:
   workflow_dispatch:

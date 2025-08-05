@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v4
-      
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag sysdiglabs/dummy-vuln-app:latest
 
@@ -20,6 +20,9 @@ jobs:
       with:
           image-tag: sysdiglabs/dummy-vuln-app:latest
           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+
+    - name: Check logs
+      run: cat /home/runner/work/sysdig-cli-demo/sysdig-cli-demo/scan-logs
 
     - name: Upload SARIF file
       if: success() || failure()

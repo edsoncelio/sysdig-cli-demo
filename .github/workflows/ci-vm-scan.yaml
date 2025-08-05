@@ -1,4 +1,4 @@
-name: Scan Image
+name: Scan Image (VM)
 
 on:
   workflow_dispatch:
@@ -25,10 +25,7 @@ jobs:
           image-tag: sysdiglabs/dummy-vuln-app:latest
           sysdig-secure-url: https://app.us4.sysdig.com
           sysdig-secure-token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
-          stop-on-failed-policy-eval: true
-
-    - name: Check logs
-      run: cat /home/runner/work/sysdig-cli-demo/sysdig-cli-demo/scan-logs
+          stop-on-failed-policy-eval: true # If the policy fail, the action will return 1 (fail)
 
     - name: Upload SARIF file
       if: success() || failure()
